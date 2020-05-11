@@ -1,0 +1,19 @@
+App\Entity\Course:
+    type: entity
+    repositoryClass: App\Repository\CourseRepository
+    table: courses
+    indexes:
+        - { columns: [name] }
+    id: { id: { type: uuid } }
+    fields:
+        name:
+            type: string
+            length: 255
+        description:
+            type: string
+            length: 1000
+        type:
+            type: string
+            length: 50
+#    manyToOne:
+
