@@ -1,0 +1,14 @@
+App\Entity\Mentor:
+    type: entity
+    table: mentors
+    indexes:
+        - { columns: [created_at] }
+        - { columns: [email] }
+        - { columns: [name] }
+        - { columns: [gender] }
+    id: { login: { type: string, length: 100 } }
+    fields:
+        createdAt: { type: datetime }
+        email: { type: string, length: 100 }
+        name: { type: string, length: 255 }
+        gender: { type: string, length: 1, nullable: true }

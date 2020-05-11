@@ -3,17 +3,17 @@ App\Entity\Course:
     repositoryClass: App\Repository\CourseRepository
     table: courses
     indexes:
+        - { columns: [created_at] }
         - { columns: [name] }
+        - { columns: [type] }
     id: { id: { type: uuid } }
     fields:
-        name:
-            type: string
-            length: 255
-        description:
-            type: string
-            length: 1000
-        type:
-            type: string
-            length: 50
-#    manyToOne:
+        createdAt: { type: datetime }
+        name: { type: string, length: 255 }
+        description: { type: string, length: 1000 }
+        type: { type: string, length: 50 }
+    manyToOne:
+        author:
+            targetEntity: App\Entity\Mentor
+            joinColumn: { name: author_login, referencedColumnName: login, nullable: false }
 
