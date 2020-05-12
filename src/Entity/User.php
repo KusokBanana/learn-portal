@@ -24,10 +24,15 @@ abstract class User
 
         $this->createdAt = new \DateTime();
 
-        $this->email = $email;
-        $this->login = $email; // todo replace email chars
-        $this->name = $name;
+        $this->login  = $this->extractLogin($email);
+        $this->email  = $email;
+        $this->name   = $name;
         $this->gender = $gender;
     }
 
+    private function extractLogin(string $email): string
+    {
+        [$login] = explode('@', $email);
+        return $login;
+    }
 }
